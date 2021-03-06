@@ -1,11 +1,11 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
-import MenuBar from "./components/MenuBar";
+import RoomPage from "./components/RoomPage";
 
 function App() {
   const theme = createMuiTheme({
     palette: {
-      type: "light",
+      type: "dark",
       primary:{
         main:"#6d716b"
       }
@@ -17,7 +17,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <MenuBar/>
+          <RoomPage/>
         </div>
       </ThemeProvider>
     </React.Fragment>
