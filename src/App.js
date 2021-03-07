@@ -1,5 +1,6 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import EnquiryMain from "./components/EnquiryMain";
 
 function App() {
   const theme = createMuiTheme({
@@ -13,7 +14,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <h1>Hotel Management</h1>
+          <EnquiryMain />
         </div>
       </ThemeProvider>
     </React.Fragment>
