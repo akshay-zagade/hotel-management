@@ -1,10 +1,14 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import MenuBar from "./components/MenuBar";
 
 function App() {
   const theme = createMuiTheme({
     palette: {
       type: "light",
+      primary:{
+        main:"#6d716b"
+      }
     },
   });
 
@@ -13,7 +17,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <h1>Hotel Management</h1>
+          <MenuBar/>
         </div>
       </ThemeProvider>
     </React.Fragment>
