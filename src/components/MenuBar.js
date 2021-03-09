@@ -88,8 +88,13 @@ function MenuBar(props) {
   };
 
   const drawer = (
-    <div>
-      <div className={classes.toolbar} />
+    <div
+    onClick={handleDrawerToggle}
+    onKeyDown={handleDrawerToggle}
+    >
+      <div
+        className={classes.toolbar}
+      />
       <Divider className={classes.dividerStyle} />
       <List>
         <ListItem button key="OVERVIEW">
