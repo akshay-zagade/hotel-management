@@ -1,7 +1,6 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
 import AppRouter from "./components/AppRouter";
-import EnquiryForm from "./components/EnquiryForm";
 
 function App() {
   const theme = createMuiTheme({
@@ -21,8 +20,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          {/* <AppRouter/> */}
-          <EnquiryForm />
+          <AppRouter/>
         </div>
       </ThemeProvider>
     </React.Fragment>
