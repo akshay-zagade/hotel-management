@@ -20,6 +20,7 @@ import RoomIcon from "@material-ui/icons/Room";
 import LocalSeeIcon from "@material-ui/icons/LocalSee";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import BannerAppBar from "./BannerAppBar";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -88,40 +89,35 @@ function MenuBar(props) {
   };
 
   const drawer = (
-    <div
-    onClick={handleDrawerToggle}
-    onKeyDown={handleDrawerToggle}
-    >
-      <div
-        className={classes.toolbar}
-      />
+    <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle}>
+      <div className={classes.toolbar} />
       <Divider className={classes.dividerStyle} />
       <List>
-        <ListItem button key="OVERVIEW">
+        <ListItem button key="OVERVIEW" component={Link} to="/">
           <ListItemIcon className={classes.drawerIcon}>
             <MessageIcon />
           </ListItemIcon>
           <ListItemText primary="OVERVIEW" />
         </ListItem>
-        <ListItem button key="ROOMS">
+        <ListItem button key="ROOMS" component={Link} to="/rooms">
           <ListItemIcon className={classes.drawerIcon}>
             <HotelIcon />
           </ListItemIcon>
           <ListItemText primary="ROOMS" />
         </ListItem>
-        <ListItem button key="LOCAL AREA">
+        <ListItem button key="LOCAL AREA" component={Link} to="/">
           <ListItemIcon className={classes.drawerIcon}>
             <LocalSeeIcon />
           </ListItemIcon>
           <ListItemText primary="LOCAL AREA" />
         </ListItem>
-        <ListItem button key="MAP">
+        <ListItem button key="MAP" component={Link} to="/">
           <ListItemIcon className={classes.drawerIcon}>
             <RoomIcon />
           </ListItemIcon>
           <ListItemText primary="MAP" />
         </ListItem>
-        <ListItem button key="PHOTOS">
+        <ListItem button key="PHOTOS" component={Link} to="/photos">
           <ListItemIcon className={classes.drawerIcon}>
             <PhotoLibraryIcon />
           </ListItemIcon>
@@ -150,7 +146,7 @@ function MenuBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.menuButton}>
+          <Typography variant="h6" className={classes.menuButton} >
             <HomeWorkIcon fontSize="large" />
           </Typography>
           <ToggleBtn />
