@@ -81,7 +81,7 @@ export default function RoomDetailsDialog(props) {
         scroll="body"
         fullScreen={fullScreen}
         fullWidth={true}
-        maxWidth="md"
+        maxWidth="sm"
         keepMounted
         TransitionComponent={Transition}
       >
@@ -116,10 +116,11 @@ export default function RoomDetailsDialog(props) {
           />
           <TextField
             id="outlined-basic"
-            label="Type Your Query Here.."
+            label="How can we help you ?"
             variant="outlined"
-            required
             fullWidth
+            multiline
+            rows={3}
           />
         </DialogContent>
         <DialogActions>
