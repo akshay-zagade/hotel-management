@@ -1,5 +1,6 @@
 import { Button, Grid, makeStyles, TextField } from "@material-ui/core";
 import React from "react";
+import EnquiryDialouge from './EnquiryDialouge'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -8,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
     },
     "& > *": {
-      marginLeft: 15,
-      marginRight: 15,
+      marginLeft: 20,
+      marginRight: 20,
     },
   },
 
@@ -24,6 +25,14 @@ const useStyles = makeStyles((theme) => ({
 
 function EnquiryForm() {
   const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -82,12 +91,14 @@ function EnquiryForm() {
               className={classes.enquiryButton}
               size="large"
               fullWidth={true}
+              onClick={handleClickOpen}
             >
               Make Enquiry
             </Button>
           </Grid>
         </Grid>
       </Grid>
+      <EnquiryDialouge open={open} handleClose={handleClose}/>
     </div>
   );
 }
