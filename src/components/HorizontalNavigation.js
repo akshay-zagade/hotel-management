@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   paper: {
     display: "flex",
-    // border: `1px solid ${theme.palette.divider}`,
     flexWrap: "wrap",
     justifyContent: "center",
     [theme.breakpoints.down("xs")]: {

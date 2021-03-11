@@ -21,6 +21,11 @@ import LocalSeeIcon from "@material-ui/icons/LocalSee";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import BannerAppBar from "./BannerAppBar";
 import { Link } from "react-router-dom";
+import Rooms from "./Room";
+import Overview from "./Overview";
+import Photos from "./Photos";
+import Bus from "./pagenotfound/Bus";
+import { Route, Switch } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -146,7 +151,7 @@ function MenuBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.menuButton} >
+          <Typography variant="h6" className={classes.menuButton}>
             <HomeWorkIcon fontSize="large" />
           </Typography>
           <ToggleBtn />
@@ -173,6 +178,12 @@ function MenuBar(props) {
           </Drawer>
         </Hidden>
       </nav>
+      <Switch>
+        <Route path="/" exact component={Overview} />
+        <Route path="/rooms" component={Rooms} />
+        <Route path="/photos" component={Photos} />
+        <Route component={Bus} />
+      </Switch>
     </div>
   );
 }
