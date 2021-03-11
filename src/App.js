@@ -22,7 +22,6 @@ function App() {
         <CssBaseline />
         <div className="App">
           <AppRouter/>
-          {/* <EnquiryForm /> */}
         </div>
       </ThemeProvider>
     </React.Fragment>
