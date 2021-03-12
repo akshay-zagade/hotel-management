@@ -1,76 +1,53 @@
+import { Button, Grid, makeStyles, Paper, TextField } from "@material-ui/core";
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+import EnquiryDialouge from "./EnquiryDialouge";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import { Box } from "@material-ui/core";
+import { red } from "@material-ui/core/colors";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
-  form: {
-    "& > *": {
-      margin: theme.spacing(2),
-    },
-
-    display: "flex",
-    flexWrap: "wrap",
+  root: {
+    position: "-webkit-sticky",
+    position: "sticky",
+    top: 65,
+    zIndex: 1,
+    [theme.breakpoints.down("xs")]: {
+      position: "unset"
+    }
   },
-  buttonBox: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-    width: "100%",
+  enquiryPaper: {
+    paddingTop: 15,
+    paddingBottom: 15
+  },
+  enquiryContainer: {
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+    },
+    "& > *": {
+      marginLeft: 20,
+      marginRight: 20,
+    },
+  },
+  enquiryHeader: {
+    marginTop: 20,
+  },
+  enquiryHeadingText: {
+    color: red[400],
+    fontWeight: "bold",
+  },
+  enquiryButton: {
+    "& > *": {
+      paddingTop: "inherit",
+      paddingBottom: "inherit",
+    },
+    fontWeight: "bold",
   },
 }));
 
-const styles = (theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-});
-
-const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          className={classes.closeButton}
-          onClick={onClose}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
-
-const DialogContent = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
-}))(MuiDialogContent);
-
-
-
-export default function CustomizedDialogs() {
+function EnquiryForm() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
 
+  const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -79,60 +56,79 @@ export default function CustomizedDialogs() {
   };
 
   return (
-    <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
-      <Dialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Enquiry
-        </DialogTitle>
-        <DialogContent>
-          <form className={classes.form}>
-            <TextField
-              id="outlined-basic"
-              label="First Name"
-              variant="outlined"
-              required
-              fullWidth
-            />
-            <TextField
-              id="outlined-basic"
-              label="Last Name"
-              variant="outlined"
-              required
-              fullWidth
-            />
-            <TextField
-              id="outlined-basic"
-              label="Mobile"
-              variant="outlined"
-              required
-              fullWidth
-            />
-            <TextField
-              id="outlined-basic"
-              label="How can we help you ?"
-              variant="outlined"
-              multiline
-              rowsMax={3}
-              fullWidth
-            />
-            <Box className={classes.buttonBox}>
-              <Button variant="contained" color="secondary" type="submit">
-                submit
+    <div className={classes.root}>
+      <Paper elevation={3} className={classes.enquiryPaper}>
+        <Grid container direction="row" justify="center" spacing={2}>
+          <Grid item>
+            <Typography className={classes.enquiryHeadingText}>
+              Looking for Vacation Packages ?
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            className={classes.enquiryContainer}
+            direction="row"
+            justify="space-evenly"
+            spacing={2}
+          >
+            <Grid item>
+              <TextField
+                id="date"
+                label="Check In"
+                type="date"
+                defaultValue="2017-05-24"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+                fullWidth={true}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="date"
+                label="Check Out"
+                type="date"
+                defaultValue="2017-05-24"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                variant="outlined"
+                fullWidth={true}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="standard-basic"
+                label="Number of Guests"
+                defaultValue="2"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth={true}
+              />
+            </Grid>
+            <Grid item>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.enquiryButton}
+                size="large"
+                fullWidth={true}
+                onClick={handleClickOpen}
+              >
+                Make Enquiry
               </Button>
-              <Button variant="contained" color="secondary" type="reset">
-                reset
-              </Button>
-            </Box>
-          </form>
-        </DialogContent>
-      </Dialog>
+            </Grid>
+          </Grid>
+          <Divider />
+        </Grid>
+        <EnquiryDialouge open={open} handleClose={handleClose} />
+      </Paper>
     </div>
   );
 }
+
+export default EnquiryForm;

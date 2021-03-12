@@ -12,7 +12,7 @@ function RoomPage() {
     setOpen(false);
   };
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, marginTop:40 }}>
       <Grid container direction="row" justify="space-evenly" spacing={3}>
         <RoomCard handleClickOpen={handleClickOpen} />
         <RoomCard />
