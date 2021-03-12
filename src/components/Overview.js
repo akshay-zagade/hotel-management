@@ -1,10 +1,12 @@
-import React from 'react'
+import React from "react";
+import OverviewPageCarousel from "./OverviewPageCarousel";
 
 function Overview() {
-    return (
-        <div>
-        </div>
-    )
+  return (
+    <div>
+      <OverviewPageCarousel />
+    </div>
+  );
 }
 
-export default Overview
+export default Overview;
