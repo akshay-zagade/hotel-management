@@ -1,14 +1,12 @@
-import React from 'react'
-import EnquiryForm from "./EnquiryForm";
-import OverviewPageCarousel from './OverviewPageCarousel'
+import React from "react";
+import OverviewPageCarousel from "./OverviewPageCarousel";
 
 function Overview() {
-    return (
-        <div>
-            <EnquiryForm />
-            <OverviewPageCarousel />
-        </div>
-    )
+  return (
+    <div>
+      <OverviewPageCarousel />
+    </div>
+  );
 }
 
-export default Overview
+export default Overview;
