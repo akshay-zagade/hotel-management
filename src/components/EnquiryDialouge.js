@@ -8,8 +8,8 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import { Slide, useMediaQuery } from "@material-ui/core";
-import { TextField } from '@material-ui/core';
+import { Box, makeStyles, Slide, useMediaQuery } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
 const styles = (theme) => ({
   root: {
@@ -23,6 +23,13 @@ const styles = (theme) => ({
     color: theme.palette.grey[500],
   },
 });
+
+const useStyles = makeStyles((theme) => ({
+  enquirySubmitButton: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
 
 const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, subtitle, ...other } = props;
@@ -50,18 +57,11 @@ const DialogTitle = withStyles(styles)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
-    '& > *':  {
-      marginBottom: 15
-    }
-  }
-}))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
+    "& > *": {
+      marginBottom: 15,
+    },
   },
-}))(MuiDialogActions);
+}))(MuiDialogContent);
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -71,6 +71,7 @@ export default function RoomDetailsDialog(props) {
   const { open, handleClose } = props;
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
+  const classes = useStyles();
 
   return (
     <div>
@@ -85,52 +86,48 @@ export default function RoomDetailsDialog(props) {
         keepMounted
         TransitionComponent={Transition}
       >
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-        >
+        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Fill More Details
         </DialogTitle>
-        <DialogContent>
-          <TextField
-            id="outlined-basic"
-            label="First Name"
-            variant="outlined"
-            required
-            fullWidth
-          />
-          <TextField
-            id="outlined-basic"
-            label="Last name"
-            variant="outlined"
-            required
-            fullWidth
-          />
-          <TextField
-            id="outlined-basic"
-            label="Mobile No"
-            variant="outlined"
-            defaultValue="+91 "
-            required
-            fullWidth
-          />
-          <TextField
-            id="outlined-basic"
-            label="How can we help you ?"
-            variant="outlined"
-            fullWidth
-            multiline
-            rows={3}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button
-              variant="contained"
-              color="secondary"
-            >
-              Submit Enquiry
-            </Button>
-        </DialogActions>
+        <form>
+          <DialogContent>
+            <TextField
+              id="outlined-basic"
+              label="First Name"
+              variant="outlined"
+              required
+              fullWidth
+            />
+            <TextField
+              id="outlined-basic"
+              label="Last name"
+              variant="outlined"
+              required
+              fullWidth
+            />
+            <TextField
+              id="outlined-basic"
+              label="Mobile No"
+              variant="outlined"
+              defaultValue="+91 "
+              required
+              fullWidth
+            />
+            <TextField
+              id="outlined-basic"
+              label="How can we help you ?"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+            />
+            <Box className={classes.enquirySubmitButton}>
+              <Button variant="contained" color="secondary" size="large">
+                Submit Enquiry
+              </Button>
+            </Box>
+          </DialogContent>
+        </form>
       </Dialog>
     </div>
   );
