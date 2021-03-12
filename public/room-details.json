@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "title": "Delux Room",
+    "subtitle": "Guest room, 2 Twin/Single Bed(s), City view",
+    "roomOverview": [
+      {
+        "id": 1,
+        "itemName": "Room Amenities",
+        "items": [
+          {
+            "id": 1,
+            "subItemName": "Beds and Bedding",
+            "subItems": [
+              "Maximum Occupancy: 3",
+              "2 Twin/Single Bed(s)",
+              "Rollaway beds permitted: 1",
+              "Cribs permitted: 1",
+              "Maximum cribs/rollaway beds permitted: 1",
+              "Pillowtop mattress, Featherbed, and Duvet"
+            ]
+          },
+          {
+            "id": 2,
+            "subItemName": "Furniture and Furnishings",
+            "subItems": [
+              "Sofa",
+              "Alarm Clock",
+              "Safe, in room",
+              "Desk, ergonomic, with ergonomic chair, and electrical outlet",
+              "Iron and ironing board"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "itemName": "Room Overview",
+        "items": [
+          {
+            "id": 1,
+            "subItemName": "Room Features",
+            "subItems": [
+              "38sqm/409sqft",
+              "Air-conditioned",
+              "Connecting rooms are available (for some rooms)",
+              "Living/sitting area",
+              "Walk-in closet",
+              "Windows, soundproof",
+              "Windows, floor to ceiling",
+              "Plunge pool",
+              "Pegs",
+              "USB Outlets"
+            ]
+          },
+          {
+            "id": 2,
+            "subItemName": "Accessible Room Features",
+            "subItems": [
+              "This room type does not offer mobility accessible rooms",
+              "This room type offers accessible rooms with roll in showers",
+              "This room type does not offer hearing accessible rooms"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Executive Suite",
+    "subtitle": "Guest room, 1 King, Bathrooms: 1.5, Skyline view",
+    "roomOverview": [
+      {
+        "id": 1,
+        "itemName": "Room Amenities",
+        "items": [
+          {
+            "id": 1,
+            "subItemName": "Beds and Bedding",
+            "subItems": [
+              "Maximum Occupancy: 3",
+              "2 Twin/Single Bed(s)",
+              "Rollaway beds permitted: 1",
+              "Cribs permitted: 1",
+              "Maximum cribs/rollaway beds permitted: 1",
+              "Pillowtop mattress, Featherbed, and Duvet"
+            ]
+          },
+          {
+            "id": 2,
+            "subItemName": "Furniture and Furnishings",
+            "subItems": [
+              "Sofa",
+              "Alarm Clock",
+              "Safe, in room",
+              "Desk, ergonomic, with ergonomic chair, and electrical outlet",
+              "Iron and ironing board"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "itemName": "Room Overview",
+        "items": [
+          {
+            "id": 1,
+            "subItemName": "Room Features",
+            "subItems": [
+              "38sqm/409sqft",
+              "Air-conditioned",
+              "Connecting rooms are available (for some rooms)",
+              "Living/sitting area",
+              "Walk-in closet",
+              "Windows, soundproof",
+              "Windows, floor to ceiling",
+              "Plunge pool",
+              "Pegs",
+              "USB Outlets"
+            ]
+          },
+          {
+            "id": 2,
+            "subItemName": "Accessible Room Features",
+            "subItems": [
+              "This room type does not offer mobility accessible rooms",
+              "This room type offers accessible rooms with roll in showers",
+              "This room type does not offer hearing accessible rooms"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

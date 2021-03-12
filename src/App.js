@@ -1,6 +1,8 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
 import AppRouter from "./components/AppRouter";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   const theme = createMuiTheme({
@@ -17,12 +19,15 @@ function App() {
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="App">
-          <AppRouter/>
-        </div>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+
+          <div className="App">
+            <AppRouter />
+          </div>
+        </ThemeProvider>
+      </Provider>
     </React.Fragment>
   );
 }
