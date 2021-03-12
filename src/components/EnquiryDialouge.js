@@ -4,7 +4,6 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
@@ -24,10 +23,15 @@ const styles = (theme) => ({
   },
 });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   enquirySubmitButton: {
     display: "flex",
     justifyContent: "center",
+  },
+  enquiryInnerForm: {
+    "& > *": {
+      marginBottom: 15,
+    },
   },
 }));
 
@@ -89,8 +93,8 @@ export default function RoomDetailsDialog(props) {
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           Fill More Details
         </DialogTitle>
-        <form>
-          <DialogContent>
+        <DialogContent>
+          <form className={classes.enquiryInnerForm}>
             <TextField
               id="outlined-basic"
               label="First Name"
@@ -126,8 +130,8 @@ export default function RoomDetailsDialog(props) {
                 Submit Enquiry
               </Button>
             </Box>
-          </DialogContent>
-        </form>
+          </form>
+        </DialogContent>
       </Dialog>
     </div>
   );

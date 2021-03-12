@@ -26,6 +26,7 @@ import Overview from "./Overview";
 import Photos from "./Photos";
 import Bus from "./pagenotfound/Bus";
 import { Route, Switch } from "react-router-dom";
+import EnquiryForm from "./EnquiryForm";
 
 const drawerWidth = 240;
 
@@ -178,6 +179,7 @@ function MenuBar(props) {
           </Drawer>
         </Hidden>
       </nav>
+      <EnquiryForm />
       <Switch>
         <Route path="/" exact component={Overview} />
         <Route path="/rooms" component={Rooms} />
