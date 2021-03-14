@@ -32,6 +32,7 @@ import { Container, Switch as SwitchButton } from "@material-ui/core";
 import { connect } from "react-redux";
 import { requestDarkTheme, requestLightTheme } from "../redux";
 import StickyFooter from "./StickyFooter";
+import EnquiryForm from "./EnquiryForm";
 
 const drawerWidth = 240;
 
@@ -181,7 +182,7 @@ function MenuBar(props) {
             <HomeWorkIcon fontSize="large" />
           </Typography>
           <ToggleBtn />
-          
+
           <SwitchButton
             onChange={handleThemeChange}
             checked={themeType.isOn}
@@ -215,13 +216,14 @@ function MenuBar(props) {
           </Drawer>
         </Hidden>
       </nav>
+      <EnquiryForm />
       <Switch>
         <Route path="/" exact component={Overview} />
         <Route path="/rooms" component={Rooms} />
         <Route path="/photos" component={Photos} />
         <Route component={Bus} />
       </Switch>
-      <StickyFooter/>
+      <StickyFooter />
     </div>
   );
 }

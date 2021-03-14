@@ -22,7 +22,7 @@ function RoomPage({ roomData, fetchRoom }) {
   }, [fetchRoom]);
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, marginTop: 40 }}>
       {roomData.loading ? (
         <h1>Loading...</h1>
       ) : (

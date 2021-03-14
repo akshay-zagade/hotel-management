@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import OverviewPageCarousel from "./OverviewPageCarousel";
 
 function Overview() {
-    return (
-        <div>
-            <h1 style={{textAlign:"center"}}>Overview Page</h1>
-        </div>
-    )
+  return (
+    <div>
+      <OverviewPageCarousel />
+    </div>
+  );
 }
 
-export default Overview
+export default Overview;
