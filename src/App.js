@@ -1,13 +1,12 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import React from "react";
+import { connect } from "react-redux";
 import AppRouter from "./components/AppRouter";
-import { Provider } from "react-redux";
-import store from "./redux/store";
 
-function App() {
+function App(props) {
   const theme = createMuiTheme({
     palette: {
-      type: "light",
+      type: props.themeType,
       primary: {
         main: "#6d716b",
       },
@@ -19,17 +18,20 @@ function App() {
 
   return (
     <React.Fragment>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-
-          <div className="App">
-            <AppRouter />
-          </div>
-        </ThemeProvider>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="App">
+          <AppRouter />
+        </div>
+      </ThemeProvider>
     </React.Fragment>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    themeType: state.theme.type,
+  };
+};
+
+export default connect(mapStateToProps)(App);

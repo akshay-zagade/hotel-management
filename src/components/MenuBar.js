@@ -26,6 +26,12 @@ import Overview from "./Overview";
 import Photos from "./Photos";
 import Bus from "./pagenotfound/Bus";
 import { Route, Switch } from "react-router-dom";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import { Container, Switch as SwitchButton } from "@material-ui/core";
+import { connect } from "react-redux";
+import { requestDarkTheme, requestLightTheme } from "../redux";
+import StickyFooter from "./StickyFooter";
 
 const drawerWidth = 240;
 
@@ -62,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  navMenu: {
+  themeButton: {
     [theme.breakpoints.down("xs")]: {
       display: "none",
     },
@@ -81,13 +87,22 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  themeButtonContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
 function MenuBar(props) {
-  const { window } = props;
+  const { window, themeType, applyTheme } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleThemeChange = (event) => {
+    event.target.checked
+      ? applyTheme(requestDarkTheme)
+      : applyTheme(requestLightTheme);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -96,6 +111,17 @@ function MenuBar(props) {
   const drawer = (
     <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle}>
       <div className={classes.toolbar} />
+      <Container className={classes.themeButtonContainer}>
+        <SwitchButton
+          onChange={handleThemeChange}
+          checked={themeType.isOn}
+          value={themeType.type}
+          color="secondary"
+          inputProps={{ "aria-label": "theme change" }}
+          checkedIcon={<Brightness4Icon />}
+          icon={<Brightness7Icon />}
+        />
+      </Container>
       <Divider className={classes.dividerStyle} />
       <List>
         <ListItem button key="OVERVIEW" component={Link} to="/">
@@ -155,6 +181,17 @@ function MenuBar(props) {
             <HomeWorkIcon fontSize="large" />
           </Typography>
           <ToggleBtn />
+          
+          <SwitchButton
+            onChange={handleThemeChange}
+            checked={themeType.isOn}
+            value={themeType.type}
+            color="secondary"
+            inputProps={{ "aria-label": "theme-type" }}
+            checkedIcon={<Brightness4Icon />}
+            icon={<Brightness7Icon />}
+            className={classes.themeButton}
+          />
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -184,8 +221,21 @@ function MenuBar(props) {
         <Route path="/photos" component={Photos} />
         <Route component={Bus} />
       </Switch>
+      <StickyFooter/>
     </div>
   );
 }
 
-export default MenuBar;
+const mapStateToProps = (state) => {
+  return {
+    themeType: state.theme,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    applyTheme: (action) => dispatch(action()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuBar);

@@ -5,7 +5,7 @@ import RoomDetailsDialog from "./RoomDetailsDialog";
 import { fetchRoomData } from "../redux";
 import { connect } from "react-redux";
 
-function RoomPage({ roomData, fetchRoomData }) {
+function RoomPage({ roomData, fetchRoom }) {
   const [open, setOpen] = useState(false);
   const [roomDialogDetails, setRoomDialogDetails] = useState({});
 
@@ -18,11 +18,8 @@ function RoomPage({ roomData, fetchRoomData }) {
   };
 
   useEffect(() => {
-    fetchRoomData();
-    return () => {
-      console.log("from RoomPage", roomData);
-    };
-  }, []);
+    fetchRoom();
+  }, [fetchRoom]);
 
   return (
     <div style={{ padding: 20 }}>
@@ -51,8 +48,6 @@ function RoomPage({ roomData, fetchRoomData }) {
 }
 
 const mapStateToProps = (state) => {
-  console.log("From mapStateToProps: ", state);
-
   return {
     roomData: state.room,
   };
@@ -60,7 +55,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchRoomData: () => dispatch(fetchRoomData()),
+    fetchRoom: () => dispatch(fetchRoomData()),
   };
 };
 
