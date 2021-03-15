@@ -66,7 +66,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function RoomDetailsDialog(props) {
-  const { open, handleClose } = props;
+  const { open, handleClose, roomDetails } = props;
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -86,9 +86,9 @@ export default function RoomDetailsDialog(props) {
         <DialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-          subtitle="Guest room, 1 King, Bathrooms: 1.5, Skyline view"
+          subtitle={roomDetails.subtitle}
         >
-          EXECUTIVE SUITE
+          {roomDetails.title}
         </DialogTitle>
         <DialogContent>
           <RoomCarousel />
@@ -132,9 +132,10 @@ export default function RoomDetailsDialog(props) {
             ullamcorper nulla non metus auctor fringilla. Aenean lacinia
             bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
             scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
+            ullamcorper   nulla non metus auctor fringilla.
+           
           </Typography>
-          <RoomOverview />
+          <RoomOverview overview={roomDetails.roomOverview} />
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
