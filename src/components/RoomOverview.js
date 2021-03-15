@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RoomOverview() {
+export default function RoomOverview(props) {
+  const { overview } = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -35,198 +36,54 @@ export default function RoomOverview() {
 
   return (
     <div className={classes.root}>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography className={classes.heading}>Room Overview</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Grid container spacing={3} direction="row" justify="flex-start">
-            <Grid item>
-              <List
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                  <ListSubheader
-                    component="div"
-                    id="nested-list-subheader"
-                    className={classes.listHeading}
-                  >
-                    Room Features
-                  </ListSubheader>
-                }
-              >
-                <ListItem>
-                  <ListItemText primary="Air-conditioned" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Living/sitting area" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary=" 38sqm/409sqft" />
-                </ListItem>
-              </List>
-            </Grid>
-            <Grid item>
-              <List
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                  <ListSubheader
-                    component="div"
-                    id="nested-list-subheader"
-                    className={classes.listHeading}
-                  >
-                    Hospitality Services
-                  </ListSubheader>
-                }
-              >
-                <ListItem>
-                  <ListItemText primary="Newspaper delivered to room on request" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="This room type does not offer hearing accessible rooms" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary=" 38sqm/409sqft" />
-                </ListItem>
-              </List>
-            </Grid>
-          </Grid>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography className={classes.heading}>Room Amenities</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Grid container spacing={3} direction="row" justify="flex-start">
-            <Grid item>
-              <List
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                  <ListSubheader
-                    component="div"
-                    id="nested-list-subheader"
-                    className={classes.listHeading}
-                  >
-                    Room Features
-                  </ListSubheader>
-                }
-              >
-                <ListItem>
-                  <ListItemText primary="Air-conditioned" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Living/sitting area" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary=" 38sqm/409sqft" />
-                </ListItem>
-              </List>
-            </Grid>
-            <Grid item>
-              <List
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                  <ListSubheader
-                    component="div"
-                    id="nested-list-subheader"
-                    className={classes.listHeading}
-                  >
-                    Hospitality Services
-                  </ListSubheader>
-                }
-              >
-                <ListItem>
-                  <ListItemText primary="Newspaper delivered to room on request" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="This room type does not offer hearing accessible rooms" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary=" 38sqm/409sqft" />
-                </ListItem>
-              </List>
-            </Grid>
-          </Grid>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography className={classes.heading}>In-room Media</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Grid container spacing={3} direction="row" justify="flex-start">
-            <Grid item>
-              <List
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                  <ListSubheader
-                    component="div"
-                    id="nested-list-subheader"
-                    className={classes.listHeading}
-                  >
-                    Room Features
-                  </ListSubheader>
-                }
-              >
-                <ListItem>
-                  <ListItemText primary="Air-conditioned" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="Living/sitting area" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary=" 38sqm/409sqft" />
-                </ListItem>
-              </List>
-            </Grid>
-            <Grid item>
-              <List
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                  <ListSubheader
-                    component="div"
-                    id="nested-list-subheader"
-                    className={classes.listHeading}
-                  >
-                    Hospitality Services
-                  </ListSubheader>
-                }
-              >
-                <ListItem>
-                  <ListItemText primary="Newspaper delivered to room on request" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary="This room type does not offer hearing accessible rooms" />
-                </ListItem>
-                <ListItem>
-                  <ListItemText primary=" 38sqm/409sqft" />
-                </ListItem>
-              </List>
-            </Grid>
-          </Grid>
-        </AccordionDetails>
-      </Accordion>
+      {overview &&
+        overview.map((feature) => (
+          <Accordion
+            expanded={expanded === feature.itemName}
+            onChange={handleChange(feature.itemName)}
+            key={feature.id}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`${feature.itemName}bh-content`}
+              id={`${feature.itemName}bh-header`}
+            >
+              <Typography className={classes.heading}>
+                {feature.itemName}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Grid container spacing={3} direction="row" justify="flex-start">
+                {feature &&
+                  feature.items &&
+                  feature.items.map((subElement) => (
+                    <Grid item key={subElement.id}>
+                      <List
+                        aria-labelledby="nested-list-subheader"
+                        subheader={
+                          <ListSubheader
+                            component="div"
+                            id="nested-list-subheader"
+                            className={classes.listHeading}
+                          >
+                            {subElement.subItemName}
+                          </ListSubheader>
+                        }
+                      >
+                        {subElement &&
+                          subElement.subItems &&
+                          subElement.subItems.map((itemName, index) => (
+                            <ListItem key={index}>
+                              <ListItemText primary={itemName} />
+                            </ListItem>
+                          ))}
+                      </List>
+                    </Grid>
+                  ))}
+              </Grid>
+            </AccordionDetails>
+          </Accordion>
+        ))}
     </div>
   );
 }

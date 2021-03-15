@@ -8,20 +8,22 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Grid } from "@material-ui/core";
-import RoomOTwo from '../resources/static/images/roomtwo.jfif'
+import RoomTwo from "../resources/static/images/roomtwo.jfif";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
-  bottomButton:{
-      backgroundColor:"#e4beb6",
-      fontWeight: "bold"
-  }
+  bottomButton: {
+    backgroundColor: "#e4beb6",
+    fontWeight: "bold",
+  },
 });
 
-export default function RoomCard({handleClickOpen}) {
+export default function RoomCard({ handleClickOpen, ...props }) {
   const classes = useStyles();
+
+  const { title, subtitle } = props;
 
   return (
     <Grid item>
@@ -31,20 +33,25 @@ export default function RoomCard({handleClickOpen}) {
             component="img"
             alt="Contemplative Reptile"
             height="140"
-            image={RoomOTwo}
+            image={RoomTwo}
             title="Contemplative Reptile"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Deluxe Room
+              {title}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            Guest room, 1 King, City view
+              {subtitle}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary" className={classes.bottomButton} onClick={handleClickOpen}>
+          <Button
+            size="small"
+            color="primary"
+            className={classes.bottomButton}
+            onClick={handleClickOpen}
+          >
             check rates
           </Button>
         </CardActions>
