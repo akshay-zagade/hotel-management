@@ -1,9 +1,9 @@
-import axios from "axios";
 import {
   ROOM_DATA_REQUEST,
   ROOM_DATA_SUCCESS,
   ROOM_DATA_FAILURE,
 } from "./roomActionTypes";
+import api from "../../api";
 
 const fetchRoomRequest = () => {
   return {
@@ -31,8 +31,8 @@ const fetchRoomData = () => {
   return (dispatch) => {
     dispatch(fetchRoomRequest());
 
-    axios
-      .get("http://localhost:3010/room-details.json")
+    api
+      .getRooms()
       .then((response) => {
         const roomData = response.data;
         dispatch(fetchRoomSuccess(roomData));

@@ -57,7 +57,7 @@ export default function RoomOverview(props) {
                 {feature &&
                   feature.items &&
                   feature.items.map((subElement) => (
-                    <Grid item key={subElement.id}>
+                    <Grid item key={subElement.subItemName}>
                       <List
                         aria-labelledby="nested-list-subheader"
                         subheader={
