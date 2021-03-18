@@ -33,6 +33,7 @@ import { requestDarkTheme, requestLightTheme } from "../redux";
 import StickyFooter from "./StickyFooter";
 import EnquiryForm from "./EnquiryForm";
 import NavigationTab from "./NavigationTab";
+import LocalArea from "./LocalArea";
 
 const drawerWidth = 240;
 
@@ -140,7 +141,7 @@ function MenuBar(props) {
           </ListItemIcon>
           <ListItemText primary="ROOMS" />
         </ListItem>
-        <ListItem button key="LOCAL AREA" component={Link} to="/">
+        <ListItem button key="LOCAL AREA" component={Link} to="/localarea">
           <ListItemIcon className={classes.drawerIcon}>
             <LocalSeeIcon />
           </ListItemIcon>
@@ -224,6 +225,7 @@ function MenuBar(props) {
         <Route path="/" exact component={Overview} />
         <Route path="/rooms" component={Rooms} />
         <Route path="/photos" component={Photos} />
+        <Route path="/localarea" component={LocalArea} />
         <Route component={Bus} />
       </Switch>
       <StickyFooter />
