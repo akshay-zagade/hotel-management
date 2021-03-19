@@ -12,7 +12,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import ToggleBtn from "./HorizontalNavigation";
 import HotelIcon from "@material-ui/icons/Hotel";
 import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import MessageIcon from "@material-ui/icons/Message";
@@ -33,6 +32,7 @@ import { connect } from "react-redux";
 import { requestDarkTheme, requestLightTheme } from "../redux";
 import StickyFooter from "./StickyFooter";
 import EnquiryForm from "./EnquiryForm";
+import NavigationTab from "./NavigationTab";
 
 const drawerWidth = 240;
 
@@ -98,7 +98,10 @@ function MenuBar(props) {
   const { window, themeType, applyTheme } = props;
   const classes = useStyles();
   const theme = useTheme();
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { history } = props;
+
   const handleThemeChange = (event) => {
     event.target.checked
       ? applyTheme(requestDarkTheme)
@@ -181,7 +184,7 @@ function MenuBar(props) {
           <Typography variant="h6" className={classes.menuButton}>
             <HomeWorkIcon fontSize="large" />
           </Typography>
-          <ToggleBtn />
+          <NavigationTab history={history} />
 
           <SwitchButton
             onChange={handleThemeChange}
