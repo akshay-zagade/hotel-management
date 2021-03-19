@@ -4,6 +4,7 @@ import RoomCard from "./RoomCard";
 import RoomDetailsDialog from "./RoomDetailsDialog";
 import { fetchRoomData } from "../redux";
 import { connect } from "react-redux";
+import RoomPageSkeleton from "./RoomPageSkeleton";
 
 function RoomPage({ roomData, fetchRoom }) {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ function RoomPage({ roomData, fetchRoom }) {
   return (
     <div style={{ padding: 20, marginTop: 40 }}>
       {roomData.loading ? (
-        <h1>Loading...</h1>
+        <RoomPageSkeleton/>
       ) : (
         <Grid container direction="row" justify="space-evenly" spacing={3}>
           {roomData &&
