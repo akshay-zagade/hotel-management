@@ -26,7 +26,7 @@ function HotelOverview() {
 
   return (
     <div>
-      <Grid container xs={12} className={classes.root} direction="row">
+      <Grid container className={classes.root} direction="row">
         <Grid item xs={12} sm={6}>
           <Box className={classes.overviewText}>
             <Typography variant="h4" gutterBottom>
@@ -51,7 +51,6 @@ function HotelOverview() {
           item
           xs={12}
           sm={6}
-          classes={classes.overviewImage}
           align="center"
         >
           <Box className={classes.overviewImage}>
