@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import PhotoPage from "./PhotoPage";
 
 function Photos() {
-    return (
-        <div>
-            <h1 style={{textAlign:"center"}}>Photos Page</h1>
-        </div>
-    )
+  return (
+    <div>
+      <h1 style={{ textAlign: "center" }}>PHOTOS</h1>
+      <PhotoPage />
+    </div>
+  );
 }
 
-export default Photos
+export default Photos;
