@@ -17,6 +17,11 @@ const api = {
     method: "GET",
     url: endpoints.ROOMS,
   }),
+  createEnquiry: (enquiry) => instance({
+    method: "POST",
+    url: endpoints.ENQUIRIES,
+    data: enquiry
+  }),
 };
 
 export default api;
