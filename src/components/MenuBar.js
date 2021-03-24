@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
@@ -112,6 +112,18 @@ function MenuBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  const location = new Map();
+  location.set("/", undefined);
+  location.set("/rooms", "Rooms -");
+  location.set("/localarea", "Local Area -");
+  location.set("/map", "Map -");
+  location.set("/photos", "Photos -");
+
+  useEffect(() => {
+    let title = history.location.pathname;
+    document.title = `${location.get(title) || ""} Akshay Lodge`;
+  });
 
   const drawer = (
     <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle}>

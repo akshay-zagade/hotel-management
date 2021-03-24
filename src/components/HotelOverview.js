@@ -33,11 +33,14 @@ function HotelOverview() {
               PLAN YOUR STAY AT OUR LODGE IN JEJURI
             </Typography>
             <Typography gutterBottom>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English.
+              Experience a good service at economic cost. Ideally situated in
+              center of the Jejuri city (On the way to Khandoba temple). Our
+              lodge is an ideal destination for Khandoba devotees. We provide
+              different types of rooms including AC-Delux Room, Delux Room,
+              Semi-Delux Room with clean bathrooms etc. We also provide big hall
+              to accommodate 20-25 people. We provide home made lunch or dinner
+              on demand. We look forward to making your visit truly remarkable
+              at Akshay Lodge, Jejuri.
             </Typography>
             <Typography style={{ fontWeight: "bold" }}>
               Connect with us &nbsp;
@@ -47,12 +50,7 @@ function HotelOverview() {
             </Typography>
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          align="center"
-        >
+        <Grid item xs={12} sm={6} align="center">
           <Box className={classes.overviewImage}>
             <img src={RoomOne} alt="Overview" />
           </Box>

@@ -6,14 +6,20 @@ import Link from "@material-ui/core/Link";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary">
-      {"Copyright © "}
-      <Link color="inherit" href="http://localhost:3010/">
-        Hotel AK
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
+    <>
+      <Typography variant="body2" color="textSecondary">
+        {"Copyright © "}
+        <Link color="inherit" href="http://localhost:3010/">
+          Akshay Lodge
+        </Link>
+        {" 1994-"}
+        {new Date().getFullYear()}
+        {". "}
+      </Typography>
+      <Typography variant="body2" color="textSecondary">
+        Zagade Complex, Hanuman Chowk, Jejuri, 412303, Maharashtra, India.
+      </Typography>
+    </>
   );
 }
 
@@ -28,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "auto",
     backgroundColor:
       theme.palette.type === "light"
-        ? theme.palette.grey[200]
+        ? theme.palette.grey[400]
         : theme.palette.grey[800],
   },
   contents: {
