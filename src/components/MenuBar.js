@@ -34,6 +34,7 @@ import StickyFooter from "./StickyFooter";
 import EnquiryForm from "./EnquiryForm";
 import NavigationTab from "./NavigationTab";
 import LocalArea from "./LocalArea";
+import Map from "./Map";
 
 const drawerWidth = 240;
 
@@ -159,7 +160,7 @@ function MenuBar(props) {
           </ListItemIcon>
           <ListItemText primary="LOCAL AREA" />
         </ListItem>
-        <ListItem button key="MAP" component={Link} to="/">
+        <ListItem button key="MAP" component={Link} to="/map">
           <ListItemIcon className={classes.drawerIcon}>
             <RoomIcon />
           </ListItemIcon>
@@ -238,6 +239,7 @@ function MenuBar(props) {
         <Route path="/rooms" component={Rooms} />
         <Route path="/photos" component={Photos} />
         <Route path="/localarea" component={LocalArea} />
+        <Route path="/map" component={Map} />
         <Route component={Bus} />
       </Switch>
       <StickyFooter />

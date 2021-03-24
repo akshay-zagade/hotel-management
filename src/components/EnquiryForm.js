@@ -116,7 +116,7 @@ function EnquiryForm() {
                 <TextField
                   id="guest-count"
                   label="Number of Guests"
-                  type="text"
+                  type="number"
                   name="guestCount"
                   value={enquiry.guestCount}
                   onChange={changeHandler}
