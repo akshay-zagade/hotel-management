@@ -112,8 +112,6 @@ function EnquiryDialouge(props) {
     if (reason === "clickaway") {
       return;
     }
-    console.log(successNotification);
-    console.log(failureNotification);
     dispatch(hideSuccessNotifiacation());
     dispatch(hideFailureNotifiacation());
   };
@@ -204,7 +202,7 @@ function EnquiryDialouge(props) {
           elevation={6}
           variant="filled"
         >
-          Enquiry created successfully
+          Enquiry submitted successfully
         </Alert>
       </Snackbar>
       <Snackbar open={failureNotification} onClose={handleCloseNotification}>
@@ -214,7 +212,7 @@ function EnquiryDialouge(props) {
           elevation={6}
           variant="filled"
         >
-          Failed to create enquiry
+          Enquiry couldn't be created
         </Alert>
       </Snackbar>
     </div>
