@@ -11,6 +11,8 @@ import {
   CardActionArea,
   CardActions,
   CardMedia,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 
 const styles = (theme) => ({
@@ -60,14 +62,19 @@ export default function PhotoDialog(props) {
   const { handleClose, open, photoDetails } = props;
   const { title, description, imageUrl } = photoDetails;
   const classes = useStyles();
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
 
   return (
     <div>
       <Dialog
-        fullScreen
+        fullScreen={fullScreen}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        fullWidth
+        maxWidth="xl"
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {title}

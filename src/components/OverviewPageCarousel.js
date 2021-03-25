@@ -1,6 +1,4 @@
 import React from "react";
-import RoomTwo from "../resources/static/images/roomone.jfif";
-import RoomOne from "../resources/static/images/roomtwo.jfif";
 import { makeStyles } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 import CarouselItem from "./CarouselItem";
@@ -10,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
-  }
+  },
 }));
 
 function OverviewPageCarousel() {
@@ -18,12 +16,12 @@ function OverviewPageCarousel() {
   var items = [
     {
       title: "Random Name #1",
-      image: RoomOne,
+      image: "https://source.unsplash.com/1280x720/?room,bed",
     },
     {
       title: "Random Name #2",
-      image: RoomTwo,
-    }
+      image: "https://source.unsplash.com/1280x720/?room,hotel",
+    },
   ];
   return (
     <div className={classes.root}>

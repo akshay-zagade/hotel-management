@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
@@ -34,7 +34,7 @@ import StickyFooter from "./StickyFooter";
 import EnquiryForm from "./EnquiryForm";
 import NavigationTab from "./NavigationTab";
 import LocalArea from "./LocalArea";
-import Map from "./Map";
+import LodgeMap from "./LodgeMap";
 
 const drawerWidth = 240;
 
@@ -96,6 +96,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const locationMap = new Map([
+  ["/", undefined],
+  ["/rooms", "Rooms -"],
+  ["/localarea", "Local Area -"],
+  ["/map", "Map -"],
+  ["/photos", "Photos -"],
+]);
+
 function MenuBar(props) {
   const { window, themeType, applyTheme } = props;
   const classes = useStyles();
@@ -113,6 +121,13 @@ function MenuBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  
+
+  useEffect(() => {
+    let title = history.location.pathname;
+    document.title = `${locationMap.get(title) || ""} Akshay Lodge`;
+  });
 
   const drawer = (
     <div onClick={handleDrawerToggle} onKeyDown={handleDrawerToggle}>
@@ -227,7 +242,7 @@ function MenuBar(props) {
         <Route path="/rooms" component={Rooms} />
         <Route path="/photos" component={Photos} />
         <Route path="/localarea" component={LocalArea} />
-        <Route path="/map" component={Map} />
+        <Route path="/map" component={LodgeMap} />
         <Route component={Bus} />
       </Switch>
       <StickyFooter />

@@ -71,7 +71,7 @@ function EnquiryForm() {
           <Grid container direction="row" justify="center" spacing={2}>
             <Grid item>
               <Typography className={classes.enquiryHeadingText}>
-                Looking for Vacation Packages ?
+                Looking for Stay in Jejuri ?
               </Typography>
             </Grid>
             <Grid
