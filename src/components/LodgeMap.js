@@ -1,7 +1,7 @@
 import React from 'react'
 import MapPage from './MapPage'
 
-function Map() {
+function LodgeMap() {
     return (
         <div style={{ marginTop: 30 }}>
             <MapPage />
@@ -9,4 +9,4 @@ function Map() {
     )
 }
 
-export default Map;
+export default LodgeMap;

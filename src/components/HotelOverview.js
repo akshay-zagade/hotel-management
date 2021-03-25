@@ -39,7 +39,7 @@ function HotelOverview() {
               different types of rooms including AC-Delux Room, Delux Room,
               Semi-Delux Room with clean bathrooms etc. We also provide big hall
               to accommodate 20-25 people. We provide home made lunch or dinner
-              on demand. We look forward to making your visit truly remarkable
+              on demand. We look forward to make your visit truly remarkable
               at Akshay Lodge, Jejuri.
             </Typography>
             <Typography style={{ fontWeight: "bold" }}>
