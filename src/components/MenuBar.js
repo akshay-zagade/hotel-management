@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import HotelIcon from "@material-ui/icons/Hotel";
-import HomeWorkIcon from "@material-ui/icons/HomeWork";
+import HomeIcon from '@material-ui/icons/Home';
 import MessageIcon from "@material-ui/icons/Message";
 import RoomIcon from "@material-ui/icons/Room";
 import LocalSeeIcon from "@material-ui/icons/LocalSee";
@@ -188,7 +188,7 @@ function MenuBar(props) {
       <BannerAppBar />
       <Divider />
       <AppBar position="sticky">
-        <Toolbar>
+        <Toolbar style={{ minHeight: "52px" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -199,7 +199,10 @@ function MenuBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.menuButton}>
-            <HomeWorkIcon fontSize="large" />
+          <Link to="/">
+            <HomeIcon htmlColor="white" fontSize="large" />
+          </Link>
+            
           </Typography>
           <NavigationTab history={history} />
 
