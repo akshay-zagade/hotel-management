@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     fontWeight: "bold",
     textAlign: "center",
-    letterSpacing: "4px",
+    letterSpacing: "2px",
   },
   bannerFontColor: {
     color: "#fff",
@@ -24,7 +24,7 @@ function BannerAppBar() {
   return (
     <AppBar
       position="relative"
-      style={{ paddingTop: "50px", paddingBottom: "30px" }}
+      style={{ paddingTop: "20px", paddingBottom: "10px" }}
     >
       <Grid spacing={0} direction="row" container>
         <Grid
@@ -54,7 +54,7 @@ function BannerAppBar() {
           alignItems="flex-start"
         >
           <Grid item>
-            <Typography gutterBottom variant="h2" className={classes.heading}>
+            <Typography gutterBottom variant="h3" className={classes.heading}>
               AKSHAY LODGE
             </Typography>
           </Grid>

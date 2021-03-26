@@ -10,14 +10,14 @@ import { updateEnquiryFormObj } from "../redux";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "sticky",
-    top: 65,
+    top: 50,
     zIndex: 1,
     [theme.breakpoints.down("xs")]: {
       position: "unset",
     },
   },
   enquiryPaper: {
-    padding: 16,
+    padding: "10px 16px",
   },
   enquiryContainer: {
     [theme.breakpoints.down("xs")]: {
